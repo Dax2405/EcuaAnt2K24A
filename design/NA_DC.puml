@@ -1,0 +1,106 @@
+@startuml
+
+
+abstract class Hormiga {
+    - Id : Integer
+    - tipo: String
+    - sexo: String
+    - estado: String
+
+    + Hormiga(id:Integer)
+    + Hormiga(id:Integer, tipo:String, sexo:String, estado:String)
+    + toString():String
+    # getter/setter(...)
+}
+
+interface IHormiga {
+    + comer(IngestaNativa: IngestaNativa): Hormiga
+}
+
+
+class HLarva {
+
+    + Larva()
+    + Larva(id: Integer)
+}
+
+class HZangano {
+
+    + HZangano()
+    + HZangano(id: Integer)
+}
+
+class HObrera {
+
+    + HObrera()
+    + HObrera(id: Integer)
+}
+
+
+HLarva --|> Hormiga
+HZangano --|> Hormiga
+HObrera --|> Hormiga
+
+
+abstract class GenoAlimento {
+    + genoAlimento: String
+
+    + GenoAlimento(genoAlimento: String)
+}
+
+class X{
+    + X()
+}
+
+class XX{
+    + XX()
+}
+
+class XY{
+    + XY()
+}
+
+
+GenoAlimento <|-- X
+GenoAlimento <|-- XX
+GenoAlimento <|-- XY
+
+
+abstract class IngestaNativa {
+    + genoAlimento: GenoAlimento
+    + IngestaNativa: String
+}
+
+abstract class Alimento {
+    + tipo: String
+    
+    + Alimento(tipo: String)
+    + getTipo(): String
+}
+
+
+class AOmnivoro{
+    + Omnivoro(tipo: String)
+}
+
+class AHerbivoro{
+    + Herbivoro(tipo: String)
+}
+
+
+AOmnivoro --|> IngestaNativa
+AHerbivoro --|> IngestaNativa
+
+
+IngestaNativa --|> Alimento
+
+
+interface IIngestaNativa {
+    + inyectar(Alimento: Alimento): Boolean
+}
+
+
+
+Hormiga --|> IHormiga
+IngestaNativa --|> IIngestaNativa
+@enduml
