@@ -1,0 +1,1 @@
+2025-02-07 02:38:27 - DAC.DAO.NACatalogoDAO.DAC.DAO.NACatalogoDAO: [SQLITE_ERROR] SQL error or missing database (no such table: Catalogo)

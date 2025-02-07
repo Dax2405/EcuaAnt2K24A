@@ -3,7 +3,11 @@ package BLC.Entities;
 public class NAHLarva extends NAHormiga {
 
     public NAHLarva(Integer naId) {
-        super(naId, "Larva", "Asexual", "VIVA");
+        super(naId, "Larva", "Asexual", "Omnívoro", "VIVA");
+    }
+
+    public NAHLarva(Integer naId, String naTipo, String naSexo, String naAlimentacion, String naEstado) {
+        super(naId, naTipo, naSexo, naAlimentacion, naEstado);
     }
 
     @Override

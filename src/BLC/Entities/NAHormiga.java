@@ -5,13 +5,15 @@ public abstract class NAHormiga implements NAIHormiga {
     Integer naId;
     String naTipo;
     String naSexo;
+    String naAlimentacion;
     String naEstado;
     Boolean naEntrenada;
 
-    public NAHormiga(Integer naId, String naTipo, String naSexo, String naEstado) {
+    public NAHormiga(Integer naId, String naTipo, String naSexo, String naAlimentacion, String naEstado) {
         this.naId = naId;
         this.naTipo = naTipo;
         this.naSexo = naSexo;
+        this.naAlimentacion = naAlimentacion;
         this.naEstado = naEstado;
         this.naEntrenada = false;
     }

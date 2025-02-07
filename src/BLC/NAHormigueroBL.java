@@ -9,6 +9,13 @@ import Infra.AppException;
 public class NAHormigueroBL {
     public ArrayList<NAHormiga> lstHormiguero = new ArrayList<>();
 
+    public NAHormigueroBL() {
+
+        NAHormigueroDAC hormigueroDAC = new NAHormigueroDAC();
+        hormigueroDAC.naGetHormigueroFromCSV().forEach(hormiga -> lstHormiguero.add(hormiga));
+
+    }
+
     public String crearLarva() throws AppException {
         NAHormiga hormiga = new NAHLarva(lstHormiguero.size() + 1);
         lstHormiguero.add(hormiga);

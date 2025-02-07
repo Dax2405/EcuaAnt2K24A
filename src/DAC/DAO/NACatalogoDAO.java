@@ -18,7 +18,7 @@ public class NACatalogoDAO extends NADataHelperSQLite implements NAIDAO<NACatalo
             + "Estado, "
             + "FechaCrea, "
             + "FechaModifica "
-            + " FROM Catalogo WHERE Estado = 'A";
+            + " FROM NACatalogo WHERE Estado = 'A";
 
     @Override
     public NACatalogoDTO newDTO(ResultSet rs) {
@@ -51,8 +51,8 @@ public class NACatalogoDAO extends NADataHelperSQLite implements NAIDAO<NACatalo
                 "h.Estado, " +
                 "h.FechaCrea, " +
                 "h.FechaModifica " +
-                " FROM Catalogo p " +
-                " JOIN Catalogo h ON h.IdCatalogoPadre = p.IdCatalogo " +
+                " FROM NACatalogo p " +
+                " JOIN NACatalogo h ON h.IdCatalogoPadre = p.IdCatalogo " +
                 " WHERE h.Estado = 'A' AND p.IdCatalogo = ?";
 
         return executeReadByPadre(query, rs -> newDTO(rs), idPadre);
@@ -66,7 +66,7 @@ public class NACatalogoDAO extends NADataHelperSQLite implements NAIDAO<NACatalo
 
     @Override
     public boolean create(NACatalogoDTO dto) throws Exception {
-        String query = "INSERT INTO Catalogo ("
+        String query = "INSERT INTO NACatalogo ("
                 + "IdCatalogoPadre, "
                 + "Nombre,"
                 + "Detalle,"
@@ -83,7 +83,7 @@ public class NACatalogoDAO extends NADataHelperSQLite implements NAIDAO<NACatalo
 
     @Override
     public boolean update(NACatalogoDTO dto) throws Exception {
-        String query = "UPDATE Catalogo SET "
+        String query = "UPDATE NACatalogo SET "
                 + "IdCatalogoPadre = ?, "
                 + "Nombre = ?, "
                 + "Detalle = ?, "
@@ -98,7 +98,7 @@ public class NACatalogoDAO extends NADataHelperSQLite implements NAIDAO<NACatalo
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = "UPDATE Catalogo SET Estado = ?, FechaModifica = ? WHERE IdCatalogo = ?";
+        String query = "UPDATE NACatalogo SET Estado = ?, FechaModifica = ? WHERE IdCatalogo = ?";
         return execute(query, "X", getDateTimeNow(), id);
     }
 
