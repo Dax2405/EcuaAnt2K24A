@@ -1,7 +1,15 @@
 {
-    "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+  "java.project.sourcePaths": ["src", "scripts"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar"
+  ],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "ExamenFinal",
+      "database": "${workspaceFolder:NAEcuaAnt2K24A}/database/NAEcuaAnt2K24A.sqlite"
+    }
+  ]
 }
