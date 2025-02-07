@@ -18,7 +18,6 @@ CREATE TABLE NAHormiga (
     IdCatalogoGenoAlimento INTEGER,
     IdCatalogoIngestaNativa INTEGER,
     Nombre VARCHAR(20),
-    Evolucionado BOOLEAN DEFAULT 0 NOT NULL,
     Estado CHAR(1) DEFAULT 'A' NOT NULL,
     FechaCrea DATETIME DEFAULT (datetime('now', 'localtime')) NOT NULL,
     FechaModifica DATETIME,
