@@ -20,7 +20,7 @@ public abstract class NAHormiga implements NAIHormiga {
 
     @Override
     public String toString() {
-        return naId + "," + naTipo + "," + naSexo + "," + naEstado;
+        return naId + "," + naTipo + "," + naSexo + "," + naAlimentacion + "," + naEstado + "\n";
     }
 
     public Integer getNaId() {
@@ -61,6 +61,14 @@ public abstract class NAHormiga implements NAIHormiga {
 
     public void setNaEntrenada(Boolean naEntrenada) {
         this.naEntrenada = naEntrenada;
+    }
+
+    public String getNaAlimentacion() {
+        return naAlimentacion;
+    }
+
+    public void setNaAlimentacion(String naAlimentacion) {
+        this.naAlimentacion = naAlimentacion;
     }
 
 }

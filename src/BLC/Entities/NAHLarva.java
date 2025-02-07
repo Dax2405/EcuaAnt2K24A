@@ -12,6 +12,10 @@ public class NAHLarva extends NAHormiga {
 
     @Override
     public NAHormiga comer(NAIngestaNativa ingesta) {
+        if (ingesta == null || ingesta.naGenoAlimento == null) {
+            naEstado = "MUERTA";
+            return this;
+        }
 
         if (ingesta.naIngestaNativa.equals("Omnivoro") && ingesta.naGenoAlimento.naGenoAlimento.equals("XY")) {
             return new NAHZangano(this);

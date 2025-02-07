@@ -17,7 +17,8 @@ public class NAHormigueroBL {
     }
 
     public String crearLarva() throws AppException {
-        NAHormiga hormiga = new NAHLarva(lstHormiguero.size() + 1);
+        int maxId = lstHormiguero.stream().mapToInt(NAHormiga::getNaId).max().orElse(0);
+        NAHormiga hormiga = new NAHLarva(maxId + 1);
         lstHormiguero.add(hormiga);
         return "HORMIGA LARVA, agregada al hormiguero";
     }
@@ -74,8 +75,10 @@ public class NAHormigueroBL {
                 break;
             }
         // validamos
+        System.out.println(alimentoGeno + " " + alimentoNativo);
         if (aNativo == null || aGeno == null || hormiga == null || hormiga.getNaEstado() == "MUERTA"
-                || !(aGeno instanceof NAXY)) {
+                || !alimentoGeno.equals("XY") || !alimentoNativo.equals("Omnívoro")) {
+            System.out.println("Entroo");
             lstHormiguero.set(indexList, hormiga.comer(aNativo));
             return "Ups...! alimento u hormiga no son válidos";
         }
@@ -86,5 +89,19 @@ public class NAHormigueroBL {
         else
             return hormiga.getNaTipo() + " NO alimentada";
         return lstHormiguero.get(indexList).getNaTipo() + " Alimentada";
+    }
+
+    public String entrenarHormiga(int idHormiga) throws AppException {
+        for (int i = 0; i < lstHormiguero.size(); i++) {
+            if (lstHormiguero.get(i).getNaId() == idHormiga) {
+                NAHormiga hormiga = lstHormiguero.get(i);
+                if (hormiga instanceof NAHZangano)
+                    ((NAHZangano) hormiga).entrenar();
+                lstHormiguero.set(i, hormiga);
+
+                return lstHormiguero.get(i).getNaTipo() + " Entrenada";
+            }
+        }
+        return "HORMIGA, no encontrada";
     }
 }

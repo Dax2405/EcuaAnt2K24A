@@ -12,6 +12,10 @@ public class NAHZangano extends NAHormiga implements NAEntrenamiento {
 
     @Override
     public NAHormiga comer(NAIngestaNativa ingesta) {
+        if (ingesta == null || ingesta.naGenoAlimento == null) {
+            naEstado = "MUERTA";
+            return this;
+        }
         if (ingesta.naIngestaNativa.equals("Omnivoro") && ingesta.naGenoAlimento.naGenoAlimento.equals("XY")) {
             return this;
         } else {
@@ -21,7 +25,7 @@ public class NAHZangano extends NAHormiga implements NAEntrenamiento {
     }
 
     @Override
-    public void entrenar(NAIEntomologo entomologo) {
+    public void entrenar() {
         this.setNaEntrenada(true);
     }
 
