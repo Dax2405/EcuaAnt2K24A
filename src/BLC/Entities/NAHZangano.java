@@ -17,7 +17,7 @@ public class NAHZangano extends NAHormiga implements NAEntrenamiento {
     }
 
     @Override
-    public entrenar(NAIEntomologo entomologo) {
+    public void entrenar(NAIEntomologo entomologo) {
         this.setNaEntrenada(true);
     }
 
