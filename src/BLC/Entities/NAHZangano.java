@@ -1,6 +1,6 @@
 package BLC.Entities;
 
-public class NAHZangano extends NAHormiga {
+public class NAHZangano extends NAHormiga implements NAEntrenamiento {
 
     public NAHZangano(NAHLarva larva) {
         super(larva.naId, "Zangano", "Macho", larva.naEstado);
@@ -14,6 +14,11 @@ public class NAHZangano extends NAHormiga {
             naEstado = "MUERTA";
             return this;
         }
+    }
+
+    @Override
+    public entrenar(NAIEntomologo entomologo) {
+        this.setNaEntrenada(true);
     }
 
 }
