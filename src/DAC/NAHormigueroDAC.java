@@ -15,7 +15,7 @@ import Infra.Config;
 public class NAHormigueroDAC {
 
     public void naSaveHormigueroToCSV(String fullData) {
-        try (FileWriter writer = new FileWriter(Config.DATAFILE, true)) {
+        try (FileWriter writer = new FileWriter(Config.DATAFILE, false)) {
             writer.write(fullData);
             writer.write(System.lineSeparator());
             Config.showMsg("Datos guardados exitosamente en " + Config.DATAFILE);
