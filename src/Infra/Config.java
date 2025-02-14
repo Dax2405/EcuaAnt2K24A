@@ -4,7 +4,7 @@ import java.net.URL;
 import javax.swing.JOptionPane;
 
 public abstract class Config {
-    public static final URL URL_LOGO = Config.class.getResource("/GUI/Resource/Logo.png");
+    public static final URL URL_LOGO = Config.class.getResource("/GUI/Resource/logo.png");
     public static final String DATAFILE = "data/NAEcuaAnt2K24A.csv";
     public static final String LOGFILE = "data/log.txt";
 
