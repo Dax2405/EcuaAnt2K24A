@@ -27,6 +27,17 @@ public class NAHormigaDTO {
     }
 
     public NAHormigaDTO(Integer idHormiga, Integer idCatalogoTipo, Integer idCatalogoSexo, Integer idCatalogoEstado,
+            Integer idCataloGenoAlimento, Integer idCataloIngestaNativa, String nombre) {
+        IdHormiga = idHormiga;
+        IdCatalogoTipo = idCatalogoTipo;
+        IdCatalogoSexo = idCatalogoSexo;
+        IdCatalogoEstado = idCatalogoEstado;
+        IdCataloGenoAlimento = idCataloGenoAlimento;
+        IdCataloIngestaNativa = idCataloIngestaNativa;
+        Nombre = nombre;
+    }
+
+    public NAHormigaDTO(Integer idHormiga, Integer idCatalogoTipo, Integer idCatalogoSexo, Integer idCatalogoEstado,
             Integer idCataloGenoAlimento, Integer idCataloIngestaNativa, String nombre,
             String estado, String fechaCrea,
             String fechaModifica) {
