@@ -74,25 +74,23 @@ public class NAHormigaDAO extends NADataHelperSQLite implements NAIDAO<NAHormiga
 
     @Override
     public boolean create(NAHormigaDTO dto) throws Exception {
-        String query = "INSERT INTO Hormiga ("
+        String query = "INSERT INTO NAHormiga ("
                 + "IdCatalogoTipo, "
                 + "IdCatalogoSexo, "
                 + "IdCatalogoEstado, "
                 + "IdCatalogoGenoAlimento, "
                 + "IdCatalogoIngestaNativa, "
-                + "Nombre, "
-                + "Estado, "
-                + "FechaCrea"
-                + ") VALUES (?,?,?,?,?,?,?,?)";
+                + "Nombre"
+
+                + ") VALUES (?,?,?,?,?,?)";
         return execute(query,
                 dto.getIdCatalogoTipo(),
                 dto.getIdCatalogoSexo(),
                 dto.getIdCatalogoEstado(),
                 dto.getIdCataloGenoAlimento(),
                 dto.getIdCataloIngestaNativa(),
-                dto.getNombre(),
-                dto.getEstado(),
-                dto.getFechaCrea());
+                dto.getNombre());
+
     }
 
     @Override
@@ -121,7 +119,7 @@ public class NAHormigaDAO extends NADataHelperSQLite implements NAIDAO<NAHormiga
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = "UPDATE Hormiga SET Estado = ?, FechaModifica = ? WHERE IdHormiga = ?";
+        String query = "UPDATE NAHormiga SET Estado = ?, FechaModifica = ? WHERE IdHormiga = ?";
         return execute(query, "X", getDateTimeNow(), id);
     }
 
