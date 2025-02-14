@@ -8,6 +8,8 @@ public abstract class NAHormiga implements NAIHormiga {
     String naAlimentacion;
     String naEstado;
     Boolean naEntrenada;
+    String naGenoAlimento = "XY";
+    String naIngestaNativa = "Onmívoro";
 
     public NAHormiga(Integer naId, String naTipo, String naSexo, String naAlimentacion, String naEstado) {
         this.naId = naId;
@@ -69,6 +71,22 @@ public abstract class NAHormiga implements NAIHormiga {
 
     public void setNaAlimentacion(String naAlimentacion) {
         this.naAlimentacion = naAlimentacion;
+    }
+
+    public String getNaGenoAlimento() {
+        return naGenoAlimento;
+    }
+
+    public void setNaGenoAlimento(String naGenoAlimento) {
+        this.naGenoAlimento = naGenoAlimento;
+    }
+
+    public String getNaIngestaNativa() {
+        return naIngestaNativa;
+    }
+
+    public void setNaIngestaNativa(String naIngestaNativa) {
+        this.naIngestaNativa = naIngestaNativa;
     }
 
 }

@@ -1,6 +1,6 @@
 package BLC.Entities;
 
-public class NAHZangano extends NAHormiga implements NAEntrenamiento {
+public class NAHZangano extends NAHormiga implements NAIEntomologo {
 
     public NAHZangano(NAHLarva larva) {
         super(larva.naId, "Zangano", "Macho", larva.naAlimentacion, larva.naEstado);
@@ -17,6 +17,9 @@ public class NAHZangano extends NAHormiga implements NAEntrenamiento {
             return this;
         }
         if (ingesta.naIngestaNativa.equals("Omnivoro") && ingesta.naGenoAlimento.naGenoAlimento.equals("XY")) {
+            setNaGenoAlimento(ingesta.naGenoAlimento.naGenoAlimento);
+            setNaIngestaNativa(ingesta.naIngestaNativa);
+            setNaAlimentacion("Omnivoro");
             return this;
         } else {
             naEstado = "MUERTA";
@@ -25,7 +28,8 @@ public class NAHZangano extends NAHormiga implements NAEntrenamiento {
     }
 
     @Override
-    public void entrenar() {
+    public void entrenar(NAHormiga naHormiga) {
+        System.out.println("Entrenada y sumisa!");
         this.setNaEntrenada(true);
     }
 

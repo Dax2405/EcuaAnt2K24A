@@ -3,7 +3,7 @@ package BLC.Entities;
 public class NAHLarva extends NAHormiga {
 
     public NAHLarva(Integer naId) {
-        super(naId, "Larva", "Asexual", "Omnívoro", "VIVA");
+        super(naId, "larva", "Asexual", "", "VIVA");
     }
 
     public NAHLarva(Integer naId, String naTipo, String naSexo, String naAlimentacion, String naEstado) {
@@ -18,6 +18,9 @@ public class NAHLarva extends NAHormiga {
         }
 
         if (ingesta.naIngestaNativa.equals("Omnivoro") && ingesta.naGenoAlimento.naGenoAlimento.equals("XY")) {
+            setNaGenoAlimento(ingesta.naGenoAlimento.naGenoAlimento);
+            setNaAlimentacion("Onmivoro");
+            setNaIngestaNativa(ingesta.naIngestaNativa);
             return new NAHZangano(this);
         } else {
             naEstado = "MUERTA";
