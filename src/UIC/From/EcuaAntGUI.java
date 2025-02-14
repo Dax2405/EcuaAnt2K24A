@@ -8,8 +8,6 @@ import BLC.NAHormigueroBL;
 import BLC.Entities.NAHormiga;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Map;
 
 public class EcuaAntGUI extends JFrame {
@@ -51,16 +49,13 @@ public class EcuaAntGUI extends JFrame {
     private void initPanelMain() {
         JPanel panelEcuaAnt = new JPanel(new BorderLayout());
 
-        // Logo
         ImageIcon originalIcon = new ImageIcon(getClass().getResource("/UIC/Resource/logo.png"));
         Image originalImage = originalIcon.getImage();
-        Image resizedImage = originalImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Ajusta el tamaño según
-                                                                                            // sea necesario
+        Image resizedImage = originalImage.getScaledInstance(300, 200, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
         JLabel labelLogo = new JLabel(resizedIcon);
         panelEcuaAnt.add(labelLogo, BorderLayout.NORTH);
 
-        // Tabla de Hormigas
         tableModel = new DefaultTableModel(
                 new Object[] { "ID", "TipoHormiga", "Sexo", "Alimentación", "Estado", "Entrenada" }, 0);
         tableHormigas = new JTable(tableModel);
@@ -73,14 +68,12 @@ public class EcuaAntGUI extends JFrame {
         JScrollPane scrollPane = new JScrollPane(tableHormigas);
         panelEcuaAnt.add(scrollPane, BorderLayout.CENTER);
 
-        // ComboBoxes
         JPanel panelCombos = new JPanel(new GridLayout(1, 2));
         comboGenoAlimento = new JComboBox<>();
         comboIngestaNativa = new JComboBox<>();
         panelCombos.add(comboGenoAlimento);
         panelCombos.add(comboIngestaNativa);
 
-        // Botones
         JPanel panelBotones = new JPanel(new GridLayout(1, 5));
         JButton btnCrearLarva = new JButton("Crear Larva");
         JButton btnAlimentar = new JButton("Alimentar");
